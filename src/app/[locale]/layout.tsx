@@ -11,7 +11,7 @@ type LayoutProps = {
 };
 
 export default function LocaleLayout({ children, params }: LayoutProps) {
-  const locale = params.locale as Locale;
+  const locale = (params?.locale ?? "es") as Locale;
   if (!allowedLocales.includes(locale)) {
     notFound();
   }
