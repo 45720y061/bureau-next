@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useRef, type FormEvent, type RefObject } from "react";
 
 import svgPaths from "@/imports/svg-tns2fd1uue";
@@ -34,7 +35,7 @@ interface FormData {
   services: string[];
 }
 
-export default function BureauWebsite() {
+export default function BureauWebsite({ locale }: { locale?: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -48,7 +49,7 @@ export default function BureauWebsite() {
   const aboutRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
-  const scrollToSection = (ref: RefObject<HTMLDivElement>) => {
+  const scrollToSection = (ref: RefObject<HTMLDivElement | null>) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
     setMenuOpen(false);
   };
@@ -67,6 +68,8 @@ export default function BureauWebsite() {
         : [...prev.services, service]
     }));
   };
+
+  const localePrefix = locale ? `/${locale}` : "";
 
   return (
     <div className="bg-[#434343] content-stretch flex flex-col items-center relative size-full">
@@ -273,31 +276,77 @@ export default function BureauWebsite() {
           </p>
         </div>
 
-        {/* Service Cards */}
-        <div className="content-start flex flex-wrap gap-[27px] items-start justify-center relative shrink-0 w-full max-w-[1200px] px-4">
-          {[
-            { img: imgIconOutCont, title: "Outsourcing Contable", desc: "Precisión y claridad en registros, reportes y estados financieros." },
-            { img: imgOutAdm, title: "Outsourcing Administrativo", desc: "Procesos internos más ágiles y eficientes." },
-            { img: imgOutPlaIcon, title: "Outsourcing de Planilla", desc: "Gestión segura y confiable de sueldos y beneficios." },
-            { img: imgIconAsSocietaria, title: "Asesoría Societaria", desc: "Constitución, modificación y liquidación de sociedades." },
-            { img: imgIconGestLab, title: "Gestión Laboral", desc: "Cumplimiento normativo y asesoría en contratación." },
-            { img: imgIconConsProy, title: "Consultoría y Proyectos", desc: "Planes estratégicos y capacitación para crecer con solidez." },
-            { img: imgIconGestTrib, title: "Gestión Tributaria", desc: "Estrategias fiscales eficientes y soporte en fiscalizaciones." },
-          ].map((service, idx) => (
-            <div key={idx} className="bg-[#434343] content-stretch flex flex-col h-[181px] lg:h-[220px] items-center justify-center px-[25px] py-[12px] relative rounded-[9.048px] shrink-0 w-[328px] lg:w-[360px] hover:bg-[#555] transition-colors cursor-pointer">
-              <div aria-hidden="true" className="absolute border-0 border-[#434343] border-solid inset-0 pointer-events-none rounded-[9.048px]" />
-              <div className="h-[62px] lg:h-[80px] w-[81px] lg:w-[100px] mb-3">
-                <Image alt={service.title} className="h-full w-full object-contain" src={service.img} width={1366} height={768} sizes="100px" />
-              </div>
-              <p className="font-['Outfit:Bold',sans-serif] font-bold leading-[31.669px] text-[22.621px] lg:text-[26px] text-center text-white mb-2">
-                {service.title}
-              </p>
-              <p className="font-['Outfit:Regular',sans-serif] font-normal leading-[21.4px] lg:leading-[24px] text-[14.26px] lg:text-[16px] text-center text-white whitespace-pre-wrap">
-                {service.desc}
-              </p>
-            </div>
-          ))}
-        </div>
+       {/* Service Cards */}
+<div className="content-start flex flex-wrap gap-[27px] items-start justify-center relative shrink-0 w-full max-w-[1200px] px-4">
+  {[
+    {
+      slug: "outsourcing-contable",
+      img: imgIconOutCont,
+      title: "Outsourcing Contable",
+      desc: "Precisión y claridad en registros, reportes y estados financieros.",
+    },
+    {
+      slug: "outsourcing-administrativo",
+      img: imgOutAdm,
+      title: "Outsourcing Administrativo",
+      desc: "Procesos internos más ágiles y eficientes.",
+    },
+    {
+      slug: "outsourcing-planilla",
+      img: imgOutPlaIcon,
+      title: "Outsourcing de Planilla",
+      desc: "Gestión segura y confiable de sueldos y beneficios.",
+    },
+    {
+      slug: "asesoria-societaria",
+      img: imgIconAsSocietaria,
+      title: "Asesoría Societaria",
+      desc: "Constitución, modificación y liquidación de sociedades.",
+    },
+    {
+      slug: "gestion-laboral",
+      img: imgIconGestLab,
+      title: "Gestión Laboral",
+      desc: "Cumplimiento normativo y asesoría en contratación.",
+    },
+    {
+      slug: "consultoria-proyectos",
+      img: imgIconConsProy,
+      title: "Consultoría y Proyectos",
+      desc: "Planes estratégicos y capacitación para crecer con solidez.",
+    },
+    {
+      slug: "gestion-tributaria",
+      img: imgIconGestTrib,
+      title: "Gestión Tributaria",
+      desc: "Estrategias fiscales eficientes y soporte en fiscalizaciones.",
+    },
+  ].map((service) => (
+    <Link
+      key={service.slug}
+      href={`${localePrefix}/servicios/${service.slug}`}
+      className="bg-[#434343] content-stretch flex flex-col h-[181px] lg:h-[220px] items-center justify-center px-[25px] py-[12px] relative rounded-[9.048px] shrink-0 w-[328px] lg:w-[360px] hover:bg-[#555] transition-colors"
+    >
+      <div aria-hidden="true" className="absolute border-0 border-[#434343] border-solid inset-0 pointer-events-none rounded-[9.048px]" />
+      <div className="h-[62px] lg:h-[80px] w-[81px] lg:w-[100px] mb-3">
+        <Image
+          alt={service.title}
+          className="h-full w-full object-contain"
+          src={service.img}
+          width={1366}
+          height={768}
+          sizes="100px"
+        />
+      </div>
+      <p className="font-['Outfit:Bold',sans-serif] font-bold leading-[31.669px] text-[22.621px] lg:text-[26px] text-center text-white mb-2">
+        {service.title}
+      </p>
+      <p className="font-['Outfit:Regular',sans-serif] font-normal leading-[21.4px] lg:leading-[24px] text-[14.26px] lg:text-[16px] text-center text-white whitespace-pre-wrap">
+        {service.desc}
+      </p>
+    </Link>
+  ))}
+</div>
       </div>
 
       {/* Clients Section */}
