@@ -10,10 +10,11 @@ export default function SiteLayout({
   params: { locale: string };
 }) {
   return (
-    <div className="min-h-screen bg-[#434343] text-white">
+    <div className="min-h-screen bg-[#434343] text-white flex flex-col">
       <BrandHeader locale={params.locale} />
-      <main>{children}</main>
-      <BrandFooter />
+      <main className="flex-1">{children}</main>
+      <BrandFooter locale={params.locale} />
     </div>
   );
 }
+

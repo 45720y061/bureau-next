@@ -22,7 +22,7 @@ export function BrandHero({
               {subtitle}
             </p>
           )}
-          {actions && <div className="mt-8 flex justify-center gap-4">{actions}</div>}
+          {actions && <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">{actions}</div>}
         </div>
       </Container>
     </section>

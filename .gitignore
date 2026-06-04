@@ -19,3 +19,4 @@ pnpm-debug.log*
 .DS_Store
 .vscode
 .idea
+echo # Vercel local project settingsecho .vercelecho.echo # TypeScript build cacheecho *.tsbuildinfoecho.echo # archives/backupsecho *.zipecho *.bakecho.echo # audit outputsecho lighthouse_audit.json

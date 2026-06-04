@@ -1,11 +1,11 @@
 export const copy = {
   es: {
-    nav: { nosotras: "Nosotras", servicios: "Servicios", contacto: "Contacto" },
+    nav: { quienesSomos: "Quiénes Somos", servicios: "Servicios", contacto: "Contacto" },
     hero: { title: "…", subtitle: "…" },
     // etc...
   },
   en: {
-    nav: { nosotras: "About", servicios: "Services", contacto: "Contact" },
+    nav: { quienesSomos: "About", servicios: "Services", contacto: "Contact" },
     hero: { title: "…", subtitle: "…" },
     // etc...
   },
