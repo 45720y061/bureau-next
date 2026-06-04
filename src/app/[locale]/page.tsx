@@ -7,18 +7,21 @@ type PageProps = {
   params: { locale: string };
 };
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Bureau Consulting | Firma de Servicios Profesionales y Socio Estratégico",
+  description: "Acompañamiento profesional en servicios contables, legales, administrativos y de gestión para empresas que valoran el orden, el criterio y la continuidad.",
+  alternates: { canonical: "/" }, // Set natively, but Next.js will resolve domain relative.
+};
+
 export default function Page({ params }: PageProps) {
   const { locale } = params;
   if (!allowedLocales.includes(locale as (typeof allowedLocales)[number])) {
     notFound();
   }
 
-  const title = locale === "en" ? "Welcome" : "Bienvenido";
-
   return (
-    <div>
-      <h1 className="sr-only">{title}</h1>
-      <BureauWebsite locale={locale} />
-    </div>
+    <BureauWebsite locale={locale} />
   );
 }

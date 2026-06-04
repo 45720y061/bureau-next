@@ -5,7 +5,7 @@ const logoSrc = "/assets/isotipo.png";
 
 // Server Component: uses <details> for mobile menu (no JS).
 export function BrandHeader({ locale }: { locale: string }) {
-  const prefix = `/${locale}`;
+  const prefix = locale === "en" ? "/en" : "";
   return (
     <header className="sticky top-0 z-50 h-[58px] w-full bg-[#0da9e1]">
       <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-4">
@@ -17,8 +17,11 @@ export function BrandHeader({ locale }: { locale: string }) {
           <Link href={`${prefix}/servicios`} className="font-['Roboto:Regular',sans-serif] text-[#003a61] transition-colors hover:text-white">
             Servicios
           </Link>
-          <Link href={`${prefix}/nosotras`} className="font-['Roboto:Regular',sans-serif] text-[#003a61] transition-colors hover:text-white">
-            Nosotras
+          <Link href={`${prefix}/quienes-somos`} className="font-['Roboto:Regular',sans-serif] text-[#003a61] transition-colors hover:text-white">
+            Quiénes Somos
+          </Link>
+          <Link href={`${prefix}/liderazgo`} className="font-['Roboto:Regular',sans-serif] text-[#003a61] transition-colors hover:text-white">
+            Liderazgo
           </Link>
           <Link href={`${prefix}/contacto`} className="font-['Roboto:Regular',sans-serif] text-[#003a61] transition-colors hover:text-white">
             Contacto
@@ -47,8 +50,11 @@ export function BrandHeader({ locale }: { locale: string }) {
               <Link className="py-2 text-white hover:text-[#0da9e1]" href={`${prefix}/servicios`}>
                 Servicios
               </Link>
-              <Link className="py-2 text-white hover:text-[#0da9e1]" href={`${prefix}/nosotras`}>
-                Nosotras
+              <Link className="py-2 text-white hover:text-[#0da9e1]" href={`${prefix}/quienes-somos`}>
+                Quiénes Somos
+              </Link>
+              <Link className="py-2 text-white hover:text-[#0da9e1]" href={`${prefix}/liderazgo`}>
+                Liderazgo
               </Link>
               <Link className="py-2 text-white hover:text-[#0da9e1]" href={`${prefix}/contacto`}>
                 Contacto

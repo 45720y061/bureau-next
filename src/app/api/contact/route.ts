@@ -32,9 +32,9 @@ export async function POST(req: Request) {
   const email = (body.email ?? "").trim();
   const message = (body.message ?? "").trim();
 
-  if (name.length < 2 || !isEmail(email) || message.length < 10) {
+  if (!name || !isEmail(email) || !message) {
     return NextResponse.json(
-      { ok: false, error: "Datos incompletos (nombre/email/mensaje)." },
+      { ok: false, error: "Datos incompletos (nombre/correo/mensaje)." },
       { status: 400 }
     );
   }
@@ -47,11 +47,12 @@ export async function POST(req: Request) {
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
 
-  // If SMTP isn’t configured, log the payload and still return OK
-  // (so the UI works, but delivery is not real until env is set)
   if (!to || !host || !user || !pass || !from) {
-    console.log("[CONTACT-FORM] Missing SMTP env. Payload:", body);
-    return NextResponse.json({ ok: true }, { status: 200 });
+    console.error("[CONTACT-FORM] Missing SMTP env. Delivery disabled.");
+    return NextResponse.json(
+      { ok: false, error: "El envío de mensajes no está configurado. Por favor contáctenos por correo o teléfono." },
+      { status: 503 }
+    );
   }
 
   const transporter = nodemailer.createTransport({

@@ -7,17 +7,28 @@ export const config = {
   ],
 };
 
+const locales = ["en", "es"];
+const defaultLocale = "es";
+
 export function middleware(request: NextRequest) {
-  console.log("MIDDLEWARE RUNNING:", request.nextUrl.pathname);
+  const { pathname } = request.nextUrl;
 
-  const pathname = request.nextUrl.pathname;
-  const locale = pathname.startsWith("/en") ? "en" : "es";
+  const pathnameHasLocale = locales.some(
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  );
 
+  // Rewrite root/unlabeled traffic seamlessly to the hidden defaults.
+  // We do not add accept-language redirect logic.
+  if (!pathnameHasLocale) {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${defaultLocale}${pathname}`;
+    const response = NextResponse.rewrite(url);
+    response.cookies.set("BC_LOCALE", defaultLocale, { path: "/" });
+    return response;
+  }
+
+  const currentLocale = pathname.startsWith("/en") ? "en" : "es";
   const response = NextResponse.next();
-
-  response.cookies.set("BC_LOCALE", locale, {
-    path: "/",
-  });
-
+  response.cookies.set("BC_LOCALE", currentLocale, { path: "/" });
   return response;
 }
