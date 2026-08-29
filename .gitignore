@@ -13,10 +13,24 @@ pnpm-debug.log*
 
 # local env files (do NOT commit secrets)
 .env
+.env.*
+!.env.example
 .env*.local
 
 # OS/editor
 .DS_Store
 .vscode
 .idea
-echo # Vercel local project settingsecho .vercelecho.echo # TypeScript build cacheecho *.tsbuildinfoecho.echo # archives/backupsecho *.zipecho *.bakecho.echo # audit outputsecho lighthouse_audit.json
+
+# local project metadata
+.vercel
+.agents
+.codex
+
+# generated caches and reports
+*.tsbuildinfo
+lighthouse_audit.json
+
+# archives and backups
+*.zip
+*.bak

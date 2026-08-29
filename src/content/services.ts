@@ -101,12 +101,9 @@ export const services: Service[] = [
       "Elaboración de estados financieros.",
       "Informes contables para gerencia, directorio o casa matriz.",
       "Actualización y mejora de procesos contables.",
-      "Recuperación de análisis contables atrasados.",
       "Preparación y revisión de libros electrónicos.",
-      "Reformulación de contabilidades con problemas de orden o consistencia.",
       "Liquidación de impuestos vinculados a la gestión contable.",
       "Atención de fiscalizaciones.",
-      "Reconstrucción de libros oficiales, cuando sea necesario.",
     ],
     benefit:
       "Este servicio ayuda a que la empresa cuente con una base contable más clara, consistente y preparada para responder a sus necesidades de gestión, cumplimiento y toma de decisiones.",
@@ -144,7 +141,6 @@ export const services: Service[] = [
       "Elaboración de planillas.",
       "Cálculo y seguimiento de obligaciones laborales.",
       "Cumplimiento de obligaciones tributarias vinculadas a planilla.",
-      "Trámites ante autoridades laborales.",
       "Gestión de aportes a sistemas de pensiones.",
       "Coordinación de obligaciones relacionadas con seguridad social.",
       "Preparación de información para entidades administradoras.",
@@ -157,7 +153,7 @@ export const services: Service[] = [
     iconSrc: "/assets/out-pla-icon.png",
     seoTitle: "Administración de planillas para empresas | Bureau Consulting",
     seoDescription:
-      "Gestión de planillas con precisión y cumplimiento laboral. Cálculo de obligaciones, aportes a pensiones, trámites laborales y soporte continuo para su empresa.",
+      "Gestión de planillas con precisión y cumplimiento laboral. Cálculo de obligaciones, aportes a pensiones y soporte continuo para su empresa.",
     keywords: [
       "administración de planillas",
       "outsourcing de planilla Perú",
@@ -224,8 +220,6 @@ export const services: Service[] = [
       "Planificación del proceso societario correspondiente.",
       "Asesoría legal durante el proceso.",
       "Liquidación de personal, cuando corresponda.",
-      "Administración y venta de activos, según el caso.",
-      "Seguimiento legal del proceso.",
       "Representación como liquidador, cuando sea aplicable.",
     ],
     benefit:
@@ -263,7 +257,6 @@ export const services: Service[] = [
       "Revisión de beneficios laborales.",
       "Acompañamiento en el cumplimiento de obligaciones formales.",
       "Soporte en procesos inspectivos ante la autoridad laboral.",
-      "Revisión de sistemas de seguridad y salud en el trabajo.",
     ],
     benefit:
       "Este servicio ayuda a que la empresa gestione sus obligaciones laborales con mayor claridad, respaldo profesional y criterio preventivo.",
@@ -273,13 +266,12 @@ export const services: Service[] = [
     iconSrc: "/assets/icon-gest-lab.png",
     seoTitle: "Asesoría laboral para empresas | Bureau Consulting",
     seoDescription:
-      "Acompañamiento laboral con criterio profesional: contratos, beneficios, obligaciones formales, procesos inspectivos y seguridad y salud en el trabajo.",
+      "Acompañamiento laboral con criterio profesional: contratos, beneficios, obligaciones formales y procesos inspectivos.",
     keywords: [
       "asesoría laboral para empresas",
       "gestión laboral Lima",
       "contratos de trabajo Perú",
       "inspecciones laborales",
-      "seguridad y salud en el trabajo",
     ],
     get long() { return this.intro; },
     get bullets() { return this.includes; },
@@ -306,7 +298,6 @@ export const services: Service[] = [
       "Control de desembolsos.",
       "Elaboración o seguimiento de flujos de caja.",
       "Apoyo en presupuestos.",
-      "Gestión de beneficios del personal.",
     ],
     benefit:
       "Este servicio ayuda a reforzar el orden administrativo de la empresa, mejorar el seguimiento de procesos internos y dar mayor continuidad a funciones de soporte que impactan directamente en la operación.",
