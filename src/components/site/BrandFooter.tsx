@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { contact } from "@/lib/site";
+import { localizedPath } from "@/lib/routes";
 
 const imgLogo = "/assets/isotipo-variante.png";
 
@@ -10,8 +11,6 @@ const imgLogo = "/assets/isotipo-variante.png";
  * Datos de contacto consumidos desde @/lib/site para evitar duplicación.
  */
 export function BrandFooter({ locale }: { locale?: string }) {
-  const prefix = locale === "en" ? "/en" : "";
-
   return (
     <footer className="bg-[#003a61] relative shrink-0 w-full text-white">
       {/* Top accent line */}
@@ -22,7 +21,7 @@ export function BrandFooter({ locale }: { locale?: string }) {
 
         {/* Col 1 — Logo + tagline (col-span-3) */}
         <div className="lg:col-span-3 flex flex-col items-start gap-4">
-          <Link href={`${prefix}/`} className="block w-[160px] lg:w-[200px] h-auto shrink-0 focus-visible:ring-2 focus-visible:ring-[#0da9e1] focus-visible:outline-none rounded-sm">
+          <Link href={localizedPath(locale)} className="block w-[160px] lg:w-[200px] h-auto shrink-0 focus-visible:ring-2 focus-visible:ring-[#0da9e1] focus-visible:outline-none rounded-sm">
             <Image
               alt="Bureau Consulting"
               src={imgLogo}
@@ -46,7 +45,7 @@ export function BrandFooter({ locale }: { locale?: string }) {
             <ul className="flex flex-col gap-2.5 m-0 p-0 list-none">
               <li>
                 <Link
-                  href={`${prefix}/`}
+                  href={localizedPath(locale)}
                   className="font-['Outfit:Regular',sans-serif] text-[14px] text-white/75 hover:text-[#0da9e1] transition-colors focus-visible:ring-1 focus-visible:ring-[#0da9e1] outline-none rounded-sm"
                 >
                   Inicio
@@ -54,7 +53,7 @@ export function BrandFooter({ locale }: { locale?: string }) {
               </li>
               <li>
                 <Link
-                  href={`${prefix}/servicios`}
+                  href={localizedPath(locale, "/servicios")}
                   className="font-['Outfit:Regular',sans-serif] text-[14px] text-white/75 hover:text-[#0da9e1] transition-colors focus-visible:ring-1 focus-visible:ring-[#0da9e1] outline-none rounded-sm"
                 >
                   Servicios
@@ -62,7 +61,7 @@ export function BrandFooter({ locale }: { locale?: string }) {
               </li>
               <li>
                 <Link
-                  href={`${prefix}/contacto`}
+                  href={localizedPath(locale, "/contacto")}
                   className="font-['Outfit:Regular',sans-serif] text-[14px] text-white/75 hover:text-[#0da9e1] transition-colors focus-visible:ring-1 focus-visible:ring-[#0da9e1] outline-none rounded-sm"
                 >
                   Contacto

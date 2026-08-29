@@ -10,16 +10,16 @@ import Footer from "./home/Footer";
 export default function BureauWebsite({ locale }: { locale?: string }) {
   return (
     <div className="bg-[#434343] content-stretch flex flex-col items-center relative size-full text-white scroll-smooth" style={{ scrollBehavior: 'smooth' }}>
-      <Header />
+      <Header locale={locale} />
       <main className="w-full flex-grow flex flex-col items-center">
         <Hero />
         <ValuesAndServices locale={locale} />
         <Clients />
-        <Team />
+        <Team locale={locale} />
         <OfficeGallery />
         <Contact />
       </main>
-      <Footer />
+      <Footer locale={locale} />
     </div>
   );
 }

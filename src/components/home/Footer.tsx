@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import { contact } from "@/lib/site";
+import { localizedPath } from "@/lib/routes";
 
 const imgIsotipoVariante1 = "/assets/isotipo-variante.png";
 
-export default function Footer() {
+export default function Footer({ locale }: { locale?: string }) {
   return (
     <footer className="bg-[#003a61] relative shrink-0 w-full mt-auto text-white">
       {/* Top Border Divider */}
@@ -14,9 +16,9 @@ export default function Footer() {
         
         {/* Column 1: Logo Block (col-span-3) */}
         <div className="lg:col-span-3 flex flex-col items-start gap-4">
-          <div className="w-[180px] lg:w-[220px] h-auto relative shrink-0">
+          <Link href={localizedPath(locale)} className="w-[180px] lg:w-[220px] h-auto relative shrink-0 focus-visible:ring-2 focus-visible:ring-[#0da9e1] focus-visible:outline-none rounded-sm" aria-label="Bureau Consulting">
             <Image alt="Bureau Consulting" className="w-full object-contain" src={imgIsotipoVariante1} width={1366} height={768} sizes="220px" />
-          </div>
+          </Link>
           <p className="font-['Outfit:Regular',sans-serif] text-[13px] lg:text-[14px] text-white/70 leading-relaxed max-w-[280px]">
             Socio Estratégico de Negocios para el Crecimiento de su Empresa.
           </p>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import svgPaths from "@/imports/svg-tns2fd1uue";
 import { serviceCategories } from "@/content/services";
+import { localizedPath } from "@/lib/routes";
 
 // Íconos SVG de categoría (reutilizados del diseño existente)
 const categoryIcons: Record<string, React.ReactNode> = {
@@ -36,7 +37,6 @@ const categoryIcons: Record<string, React.ReactNode> = {
 };
 
 export default function ValuesAndServices({ locale }: { locale?: string }) {
-  const localePrefix = locale === "en" ? "/en" : "";
   const focusDarkBg =
     "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0da9e1] focus-visible:ring-offset-[#1e1e1e] focus:outline-none rounded-[9.048px]";
 
@@ -161,7 +161,7 @@ export default function ValuesAndServices({ locale }: { locale?: string }) {
         {serviceCategories.map((cat) => (
           <Link
             key={cat.id}
-            href={`${localePrefix}/servicios#${cat.id}`}
+            href={`${localizedPath(locale, "/servicios")}#${cat.id}`}
             className={`bg-[#434343] flex flex-col items-start px-[24px] py-[28px] lg:px-[22px] lg:py-[32px] relative hover:bg-[#4a4a4a] transition-colors rounded-[9.048px] overflow-hidden group ${focusDarkBg}`}
           >
             {/* Icon — centrado */}

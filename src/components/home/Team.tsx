@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { leaders } from "@/content/leadership";
+import { localizedPath } from "@/lib/routes";
 
-export default function Team() {
+export default function Team({ locale }: { locale?: string }) {
   const focusDarkBg =
     "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0da9e1] focus-visible:ring-offset-[#1a1a1a] outline-none rounded-[12px]";
 
@@ -41,7 +42,7 @@ export default function Team() {
             {leaders.map((member) => (
               <Link
                 key={member.slug}
-                href={`/liderazgo/${member.slug}`}
+                href={localizedPath(locale, `/liderazgo/${member.slug}`)}
                 className="group bg-[#222222] border border-white/8 rounded-[12px] overflow-hidden flex flex-col hover:border-white/15 hover:bg-[#252525] transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#0da9e1] focus-visible:outline-none"
               >
                 {/* Photo */}

@@ -4,10 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import svgPaths from "@/imports/svg-tns2fd1uue";
+import { localizedPath } from "@/lib/routes";
 
 const imgIsotipo = "/assets/isotipo.png";
 
-export default function Header() {
+export default function Header({ locale }: { locale?: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Focus utility class for consistency on light blue background
@@ -32,16 +33,16 @@ export default function Header() {
 
             {/* Desktop Navigation - Hidden on mobile */}
             <nav className="hidden md:flex gap-6 items-center" aria-label="Navegación principal">
-              <Link href="/servicios" className={`font-['Roboto:Regular',sans-serif] text-[#003a61] hover:text-white transition-colors ${focusClasses}`}>
+              <Link href={localizedPath(locale, "/servicios")} className={`font-['Roboto:Regular',sans-serif] text-[#003a61] hover:text-white transition-colors ${focusClasses}`}>
                 Servicios
               </Link>
-              <Link href="/quienes-somos" className={`font-['Roboto:Regular',sans-serif] text-[#003a61] hover:text-white transition-colors ${focusClasses}`}>
+              <Link href={localizedPath(locale, "/quienes-somos")} className={`font-['Roboto:Regular',sans-serif] text-[#003a61] hover:text-white transition-colors ${focusClasses}`}>
                 Quiénes somos
               </Link>
-              <Link href="/liderazgo" className={`font-['Roboto:Regular',sans-serif] text-[#003a61] hover:text-white transition-colors ${focusClasses}`}>
+              <Link href={localizedPath(locale, "/liderazgo")} className={`font-['Roboto:Regular',sans-serif] text-[#003a61] hover:text-white transition-colors ${focusClasses}`}>
                 Liderazgo
               </Link>
-              <Link href="/contacto" className={`font-['Roboto:Regular',sans-serif] text-[#003a61] hover:text-white transition-colors ${focusClasses}`}>
+              <Link href={localizedPath(locale, "/contacto")} className={`font-['Roboto:Regular',sans-serif] text-[#003a61] hover:text-white transition-colors ${focusClasses}`}>
                 Contacto
               </Link>
             </nav>
@@ -64,7 +65,7 @@ export default function Header() {
 
             {/* CTA Button - Hidden on mobile, shown on desktop */}
             <Link 
-              href="/contacto"
+              href={localizedPath(locale, "/contacto")}
               className={`hidden md:flex content-stretch items-center justify-center px-[14px] py-[7px] relative rounded-[4px] shrink-0 bg-transparent hover:bg-[#003a61] transition-colors group ${focusClasses}`}
             >
               <div aria-hidden="true" className="absolute border-[#003a61] border-[1px] border-solid inset-0 pointer-events-none rounded-[4px]" />
@@ -81,35 +82,35 @@ export default function Header() {
         <div id="mobile-menu" className="md:hidden fixed top-[58px] left-0 right-0 bg-[#003a61] z-40 shadow-lg">
           <nav className="flex flex-col p-4 gap-4" aria-label="Navegación móvil">
             <Link 
-              href="/servicios"
+              href={localizedPath(locale, "/servicios")}
               onClick={() => setMenuOpen(false)}
               className={`font-['Roboto:Regular',sans-serif] text-white text-left py-2 hover:text-[#0da9e1] transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0da9e1] focus-visible:ring-offset-[#003a61] outline-none rounded-sm`}
             >
               Servicios
             </Link>
             <Link 
-              href="/quienes-somos"
+              href={localizedPath(locale, "/quienes-somos")}
               onClick={() => setMenuOpen(false)}
               className={`font-['Roboto:Regular',sans-serif] text-white text-left py-2 hover:text-[#0da9e1] transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0da9e1] focus-visible:ring-offset-[#003a61] outline-none rounded-sm`}
             >
               Quiénes somos
             </Link>
             <Link 
-              href="/liderazgo"
+              href={localizedPath(locale, "/liderazgo")}
               onClick={() => setMenuOpen(false)}
               className={`font-['Roboto:Regular',sans-serif] text-white text-left py-2 hover:text-[#0da9e1] transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0da9e1] focus-visible:ring-offset-[#003a61] outline-none rounded-sm`}
             >
               Liderazgo
             </Link>
             <Link 
-              href="/contacto"
+              href={localizedPath(locale, "/contacto")}
               onClick={() => setMenuOpen(false)}
               className={`font-['Roboto:Regular',sans-serif] text-white text-left py-2 hover:text-[#0da9e1] transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0da9e1] focus-visible:ring-offset-[#003a61] outline-none rounded-sm`}
             >
               Contacto
             </Link>
             <Link 
-              href="/contacto"
+              href={localizedPath(locale, "/contacto")}
               onClick={() => setMenuOpen(false)}
               className={`bg-[#0da9e1] text-[#003a61] text-center px-4 py-2 rounded-[4px] font-['Roboto:Regular',sans-serif] hover:bg-white transition-colors inline-block focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white focus-visible:ring-offset-[#003a61] outline-none`}
             >

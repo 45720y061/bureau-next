@@ -43,6 +43,24 @@ const nextConfig = {
       permanent: true,
     }));
 
+    const legacyPageRedirects = [
+      {
+        source: "/nosotras",
+        destination: "/quienes-somos",
+        permanent: true,
+      },
+      {
+        source: "/es/nosotras",
+        destination: "/quienes-somos",
+        permanent: true,
+      },
+      {
+        source: "/en/nosotras",
+        destination: "/en/quienes-somos",
+        permanent: true,
+      },
+    ];
+
     // ── Redirect /es → / ya existente ─────────────────────────────────────
     const localeRedirects = [
       {
@@ -58,6 +76,8 @@ const nextConfig = {
     ];
 
     return [
+      // 0. Páginas institucionales legacy con destino directo.
+      ...legacyPageRedirects,
       // 1. Primero: /es/servicios/[slug-antiguo] → directo a slug nuevo (1 salto)
       ...legacyServiceSlugsEsDirect,
       // 2. Luego: redirect genérico /es/:path* → /:path* (para cualquier otra ruta /es/)
