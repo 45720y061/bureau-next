@@ -23,7 +23,7 @@ export default function Contact() {
 
           <div className="flex flex-col gap-6 w-full">
             {/* Email Directory Anchor */}
-            <a href="mailto:contacto@bureauconsulting.pe" className="flex items-center gap-4 group w-fit outline-none focus-visible:ring-2 focus-visible:ring-[#0da9e1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#003a61] rounded-lg">
+            <a href="mailto:bureau@bureauconsulting.pe" className="flex items-center gap-4 group w-fit outline-none focus-visible:ring-2 focus-visible:ring-[#0da9e1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#003a61] rounded-lg">
               <div className="w-[48px] h-[48px] rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#0da9e1] group-hover:border-[#0da9e1] transition-all duration-300">
                 <svg className="w-[18px] h-[18px] fill-[#0da9e1] group-hover:fill-[#003a61] transition-colors duration-300" viewBox="0 0 12 12" aria-hidden="true">
                   <path d={svgPaths.p2c8a0600} />
@@ -31,7 +31,7 @@ export default function Contact() {
               </div>
               <div className="flex flex-col">
                 <span className="font-['Outfit:Semi_Bold',sans-serif] text-[12px] text-white/50 tracking-wide uppercase">Email Corporativo</span>
-                <span className="font-['Outfit:Regular',sans-serif] text-[16px] text-white group-hover:text-[#0da9e1] transition-colors">contacto@bureauconsulting.pe</span>
+                <span className="font-['Outfit:Regular',sans-serif] text-[16px] text-white group-hover:text-[#0da9e1] transition-colors">bureau@bureauconsulting.pe</span>
               </div>
             </a>
 

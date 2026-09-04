@@ -33,7 +33,7 @@ export default function Hero() {
                 Conversemos
               </a>
               <a 
-                href="mailto:contacto@bureauconsulting.pe"
+                href="mailto:bureau@bureauconsulting.pe"
                 className="bg-transparent text-white border-[2px] border-white/25 font-['Outfit:Bold',sans-serif] text-[15px] lg:text-[16px] px-[28px] py-[15px] rounded-[10px] hover:border-white hover:bg-white/5 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white focus-visible:ring-offset-[#003a61] outline-none shrink-0"
               >
                 Escríbanos

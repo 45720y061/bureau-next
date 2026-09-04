@@ -429,7 +429,7 @@ Roxana Argote Lozano aporta respaldo jurídico corporativo para acompañar decis
 ## Datos públicos disponibles
 - Central telefónica: 480-0415
 - Dirección: Cal. el Boulevard Nro. 145 Oficina 302, Santiago de Surco, Lima - Perú
-- Correo: contacto@bureauconsulting.pe
+- Correo: bureau@bureauconsulting.pe
 
 ## Título sugerido
 **Contacto**
